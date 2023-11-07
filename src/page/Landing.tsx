@@ -17,7 +17,7 @@ export default function Landing({}: Props) {
           </h4>
         </div>
         {/* place image of some page ------------------------------------------------- */}
-        <section className="w-full h-[30rem] bg-red-300">image</section>
+        <section className="w-full h-[30rem] ">image</section>
         <CardWrapped />
       </main>
       <Footer />

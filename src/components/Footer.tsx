@@ -9,7 +9,7 @@ export default function Footer({}: Props) {
         <button>Contact Us</button>
         <button>Help</button>
         <button>Developer</button>
-        <div>@COPYRIGHT</div>
+        <div>@COPYRIGHT 2023</div>
       </div>
     </>
   );

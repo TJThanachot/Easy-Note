@@ -8,7 +8,7 @@ export default function App({}: Props) {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="home" element={<Home />} />
+        <Route path="/dashboard" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
