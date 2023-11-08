@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useStore } from "../../contexts/store";
-import mockNoteHook from "../../hooks/mockNoteHook";
+import mockNoteHook from "../../hooks/noteHook";
 
 type Props = {};
 
@@ -27,6 +27,7 @@ export default function NoteHistory({}: Props) {
               placeholder="Customer name search..."
               onChange={(e) => {
                 e.preventDefault;
+                // check whather did user filter by category or not ***************************
                 if (categoryStatus) {
                   filterNote(e.target.value, true, categoryStatus);
                 } else {

@@ -17,7 +17,9 @@ export default function SideNav({}: Props) {
             setCurrentPage("yourNote");
           }}
           className={`${
-            currentPage === "yourNote" ? "bg-red-400" : null
+            currentPage === "yourNote" || currentPage === "noteList"
+              ? "bg-red-400"
+              : null
           } transition duration-400 hover:scale-110 rounded-md flex items-center gap-[0.5rem] h-[2.5rem] pl-[1rem] cursor-pointer hover:bg-red-500`}
         >
           <GiStabbedNote />

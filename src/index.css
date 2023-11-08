@@ -12,7 +12,7 @@
   background-color: #242424; */
 
   background-image: linear-gradient(#a8daec, #ffe5d8);
-
+  width: 100%;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

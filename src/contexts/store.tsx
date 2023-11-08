@@ -9,12 +9,13 @@ const storeContext = React.createContext({});
 function StoreProvider(props: Props) {
   const [currentPage, setCurrentPage] = useState("yourNote");
   const [category, setCategory] = useState("");
+  const [noteDataById, setNoteDataById] = useState({});
 
   // mock data for test *************************************************
   const initialCustomers = customers;
   const [mockCustomers, setMockCustomers]: any = useState(customers);
   const initialMockNote = note;
-  const [mockNote, setMocknote]: any = useState(initialMockNote);
+  const [mockNote, setMocknote]: any = useState([]);
 
   return (
     <storeContext.Provider
@@ -29,6 +30,8 @@ function StoreProvider(props: Props) {
         mockCustomers,
         setMockCustomers,
         initialCustomers,
+        noteDataById,
+        setNoteDataById,
       }}
     >
       {props.children}
