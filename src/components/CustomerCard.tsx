@@ -9,7 +9,7 @@ type Props = {
 
 export default function CustomerCard(props: Props) {
   return (
-    <div className="bg-sixthdary cursor-pointer h-[12rem] p-[1rem] flex flex-col justify-around rounded-lg shadow-md transition duration-300 hover:scale-110">
+    <div className="bg-white cursor-pointer h-[12rem] p-[1rem] flex flex-col justify-around rounded-lg shadow-md transition duration-300 hover:scale-110">
       <div className="flex h-auto">
         {props.avartar ? (
           <img

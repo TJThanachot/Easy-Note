@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CustomerCard from "../CustomerCard";
 import { useStore } from "../../contexts/store";
+import customerHook from "../../hooks/customerHook";
 type Props = {};
 
 export default function CustomersList({}: Props) {
   const { mockCustomers }: any = useStore();
+  const { getCustomersList }: any = customerHook();
+
+  useEffect(() => {
+    getCustomersList();
+  });
   return (
     <div className="w-full flex flex-col gap-[2rem]">
       <h1 className="text-3xl font-bold text-center">
@@ -14,9 +20,10 @@ export default function CustomersList({}: Props) {
         </p>
       </h1>
       <main className="grid grid-cols-3 gap-[2rem] max-sm:grid-cols-1">
-        {mockCustomers.map((item: any) => {
+        {mockCustomers.map((item: any, index: number) => {
           return (
             <CustomerCard
+              key={index}
               avartar={item.avartar}
               fullname={item.name}
               tel={item.tel}
