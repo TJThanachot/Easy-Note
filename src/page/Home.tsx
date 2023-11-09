@@ -32,7 +32,7 @@ export default function Home({}: Props) {
               setNoteDataById({});
               setCurrentPage("CRUDNote");
             }}
-            className="bg-gradient-to-br from-primary to-secondary transition duration-400 hover:scale-110 flex flex-col items-center py-[1.5rem] text-xl font-bold rounded-lg cursor-pointer hover:shadow-lg "
+            className="bg-gradient-to-br from-primary to-secondary transition duration-400 hover:scale-110 flex flex-col items-center py-[1.5rem] text-xl font-bold rounded-lg cursor-pointer shadow-lg "
           >
             New Note
             <div>
@@ -44,7 +44,7 @@ export default function Home({}: Props) {
               setCustomerDataById({});
               setCurrentPage("CRUDCustomer");
             }}
-            className="bg-gradient-to-br from-secondary to-primary transition duration-400 hover:scale-110 flex flex-col items-center py-[1.5rem] text-xl font-bold rounded-lg cursor-pointer hover:shadow-lg "
+            className="bg-gradient-to-br from-secondary to-primary transition duration-400 hover:scale-110 flex flex-col items-center py-[1.5rem] text-xl font-bold rounded-lg cursor-pointer shadow-lg "
           >
             New Customer
             <div>

@@ -10,10 +10,10 @@ export default function TopNav({}: Props) {
         to={"/"}
       >
         <GiNotebook />
-        Logo
+        LOGO
       </Link>
       <Link
-        className="transition duration-400 hover:scale-110 hover:opacity-80 font-bold bg-primary w-[10rem] h-[3rem] rounded-lg flex items-center justify-center"
+        className="transition duration-400 hover:scale-110 hover:opacity-80 font-bold bg-gradient-to-br from-primary to-secondary w-[10rem] h-[3rem] rounded-lg flex items-center justify-center"
         to={"/dashboard"}
       >
         Dashboard

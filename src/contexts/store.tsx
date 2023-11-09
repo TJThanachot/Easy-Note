@@ -7,6 +7,10 @@ type Props = {
 const storeContext = React.createContext({});
 
 function StoreProvider(props: Props) {
+  const [swipState, setSwipstate] = useState([
+    "Great website.",
+    "So easy to note everything.",
+  ]);
   const [currentPage, setCurrentPage] = useState("yourNote");
   const [category, setCategory] = useState("");
   const [noteDataById, setNoteDataById] = useState({});
@@ -21,6 +25,8 @@ function StoreProvider(props: Props) {
   return (
     <storeContext.Provider
       value={{
+        swipState,
+        setSwipstate,
         currentPage,
         setCurrentPage,
         mockNote,

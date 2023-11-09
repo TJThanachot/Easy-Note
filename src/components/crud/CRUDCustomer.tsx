@@ -5,6 +5,7 @@ import customerHook from "../../hooks/customerHook";
 import Swal from "sweetalert2";
 import { useStore } from "../../contexts/store";
 import { UploadImage } from "../../assets/icon";
+import { useEffect } from "react";
 
 export default function CRUDCustomer({ props }: any) {
   const { createCustomer, deleteCustomer, updateCustomer } = customerHook();
@@ -40,6 +41,10 @@ export default function CRUDCustomer({ props }: any) {
       return true;
     }
   };
+
+  useEffect(() => {
+    setAvartarUrl("");
+  }, []);
 
   return (
     <div className="w-full">

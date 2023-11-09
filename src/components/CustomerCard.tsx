@@ -29,13 +29,13 @@ export default function CustomerCard(props: Props) {
         <div className="w-[65%] h-[100%] pl-[0.5rem] truncate overflow-hidden">
           <div>
             <h4 className="font-semibold bg-[#7BE495] rounded-md pl-[0.5rem] ">
-              full name
+              Full name
             </h4>
             <span className="pl-[0.5rem]">{props.fullname}</span>
           </div>
           <div>
             <h4 className="font-semibold bg-[#7BE495] rounded-md pl-[0.5rem]">
-              tel.
+              Tel.
             </h4>
             <span className="pl-[0.5rem]">{props.tel}</span>
           </div>
@@ -43,7 +43,7 @@ export default function CustomerCard(props: Props) {
       </div>
       <div className="truncate overflow-hidden">
         <h4 className="font-semibold bg-[#7BE495] rounded-md pl-[0.5rem]">
-          address
+          Address
         </h4>
         <span className="pl-[0.5rem]">{props.address}</span>
       </div>
