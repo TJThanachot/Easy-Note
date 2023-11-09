@@ -1,7 +1,5 @@
-import React from "react";
 import { useStore } from "../contexts/store";
 import moment from "moment";
-type Props = {};
 
 export default function customerHook() {
   const { setAllCustermer }: any = useStore();

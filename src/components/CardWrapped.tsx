@@ -1,4 +1,3 @@
-import React from "react";
 import Card from "./Card";
 import { GiStabbedNote, GiCalendar } from "react-icons/gi";
 import { BiListPlus, BiTask } from "react-icons/bi";
