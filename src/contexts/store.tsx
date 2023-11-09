@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { customers, note } from "../assets/mockData.ts";
+// import { customers, note } from "../assets/mockData.ts";
 type Props = {
   children: any;
 };
@@ -10,12 +10,13 @@ function StoreProvider(props: Props) {
   const [currentPage, setCurrentPage] = useState("yourNote");
   const [category, setCategory] = useState("");
   const [noteDataById, setNoteDataById] = useState({});
-
-  // mock data for test *************************************************
-  const initialCustomers = customers;
-  const [mockCustomers, setMockCustomers]: any = useState(customers);
-  const initialMockNote = note;
   const [mockNote, setMocknote]: any = useState([]);
+
+  //state for customer *****************************************************
+  const [avartarFile, setAvartarFile] = useState("");
+  const [avartarUrl, setAvartarUrl] = useState("");
+  const [allCustomer, setAllCustermer] = useState([]);
+  const [customerDataById, setCustomerDataById] = useState({});
 
   return (
     <storeContext.Provider
@@ -26,12 +27,18 @@ function StoreProvider(props: Props) {
         category,
         setCategory,
         setMocknote,
-        initialMockNote,
-        mockCustomers,
-        setMockCustomers,
-        initialCustomers,
         noteDataById,
         setNoteDataById,
+        // customer **********************************************************
+        //******************************************************* */
+        avartarFile,
+        setAvartarFile,
+        avartarUrl,
+        setAvartarUrl,
+        allCustomer,
+        setAllCustermer,
+        customerDataById,
+        setCustomerDataById,
       }}
     >
       {props.children}

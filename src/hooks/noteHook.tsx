@@ -2,7 +2,7 @@ import { useStore } from "../contexts/store";
 import moment from "moment";
 
 export default function mockNoteHook() {
-  const { setMocknote }: any = useStore();
+  const { setMocknote, mockNote }: any = useStore();
 
   // hook for NoteList page *****************************************
   function filterByDate(category: string, date: string, title: string) {
@@ -203,6 +203,22 @@ export default function mockNoteHook() {
     console.log("deleted note successfully");
   }
 
+  function sortByUpdate(result: boolean) {
+    const newNote = mockNote.sort((a: any, b: any) => {
+      const dateA = new Date(
+        a.updated_at.split("/").reverse().join("/")
+      ).getTime();
+      const dateB = new Date(
+        b.updated_at.split("/").reverse().join("/")
+      ).getTime();
+      if (result) {
+        return dateB - dateA;
+      } else {
+        return dateA - dateB;
+      }
+    });
+    return newNote;
+  }
   return {
     filterNote,
     filterNoteListByCategory,
@@ -212,5 +228,6 @@ export default function mockNoteHook() {
     deleteNote,
     filterByTitle,
     filterByDate,
+    sortByUpdate,
   };
 }

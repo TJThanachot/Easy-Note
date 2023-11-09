@@ -6,14 +6,14 @@ export default function TopNav({}: Props) {
   return (
     <div className=" shadow-lg sm:w-[72rem] md:w-full bg-gradient-to-b from-fifthdary to-secondary text-xl h-[5rem] flex flex-row items-center justify-between px-[2rem]">
       <Link
-        className="flex items-center gap-[0.5rem] text-4xl font-bold"
+        className="transition duration-200 flex items-center gap-[0.5rem] text-4xl font-bold hover:scale-110 "
         to={"/"}
       >
         <GiNotebook />
         Logo
       </Link>
       <Link
-        className="transition duration-400 hover:scale-110 font-bold bg-primary w-[10rem] h-[3rem] rounded-lg flex items-center justify-center"
+        className="transition duration-400 hover:scale-110 hover:opacity-80 font-bold bg-primary w-[10rem] h-[3rem] rounded-lg flex items-center justify-center"
         to={"/dashboard"}
       >
         Dashboard

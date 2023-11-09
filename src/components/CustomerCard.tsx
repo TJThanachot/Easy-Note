@@ -1,15 +1,20 @@
 import React from "react";
 import { RxAvatar } from "react-icons/rx";
+
 type Props = {
   avartar: string;
   fullname: string;
   tel: string;
   address: string;
+  onClick: any;
 };
 
 export default function CustomerCard(props: Props) {
   return (
-    <div className="bg-white cursor-pointer h-[12rem] p-[1rem] flex flex-col justify-around rounded-lg shadow-md transition duration-300 hover:scale-110">
+    <div
+      onClick={props.onClick ? props.onClick : null}
+      className="bg-white hover:opacity-70 cursor-pointer h-[12rem] p-[1rem] flex flex-col justify-around rounded-lg shadow-md transition duration-300 hover:scale-110"
+    >
       <div className="flex h-auto">
         {props.avartar ? (
           <img
@@ -18,7 +23,7 @@ export default function CustomerCard(props: Props) {
             alt=""
           />
         ) : (
-          <RxAvatar className="w-[35%] bg-white rounded-full h-full" />
+          <RxAvatar className="w-[35%] bg-white rounded-full h-full text-primary" />
         )}
 
         <div className="w-[65%] h-[100%] pl-[0.5rem] truncate overflow-hidden">
