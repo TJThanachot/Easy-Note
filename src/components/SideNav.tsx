@@ -7,7 +7,7 @@ type Props = {};
 export default function SideNav({}: Props) {
   const { currentPage, setCurrentPage }: any = useStore();
   return (
-    <div className="bg-gradient-to-b from-fourthdary to-fifthdary flex flex-col gap-[1rem] py-[1rem] min-w-[15rem] w-full rounded-lg  h-fit">
+    <div className="bg-gradient-to-b from-fourthdary to-fifthdary flex flex-col gap-[1rem] py-[1rem] min-w-[15rem] w-full rounded-lg shadow-lg h-fit">
       <h1 className="text-2xl font-bold h-[3rem] flex items-center pl-[1rem]">
         Note
       </h1>
