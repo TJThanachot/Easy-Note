@@ -55,7 +55,7 @@ export default function CustomersList({}: Props) {
         </div>
       </h1>
       <main className="grid grid-cols-3 gap-[2rem] max-sm:grid-cols-1">
-        {allCustomer.map((item: any, index: number) => {
+        {allCustomer?.map((item: any, index: number) => {
           return (
             <CustomerCard
               onClick={() => {

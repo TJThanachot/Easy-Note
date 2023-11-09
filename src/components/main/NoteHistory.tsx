@@ -70,7 +70,7 @@ export default function NoteHistory({}: Props) {
                 }}
               >
                 <option value="">All Categories</option>
-                {initCategory.map((item: string) => (
+                {initCategory?.map((item: string) => (
                   <option key={item} value={item} className="">
                     {item}
                   </option>
@@ -101,7 +101,7 @@ export default function NoteHistory({}: Props) {
       </div>
       {/* // out put ******************************************************** //
        ******************************************************** */}
-      {mockNote.map((note: any) => {
+      {mockNote?.map((note: any) => {
         return (
           <div
             key={note.id}
