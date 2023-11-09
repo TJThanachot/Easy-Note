@@ -1,7 +1,3 @@
-import React from "react";
-
-type Props = {};
-
 export function PlusIcon(props: any) {
   return (
     <svg

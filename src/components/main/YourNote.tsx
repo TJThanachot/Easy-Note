@@ -1,4 +1,3 @@
-import React from "react";
 import { BiTask } from "react-icons/bi";
 import { GiCalendar } from "react-icons/gi";
 import { AiOutlineUnorderedList } from "react-icons/ai";

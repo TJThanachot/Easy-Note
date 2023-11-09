@@ -11,7 +11,7 @@ export default function CRUDCustomer({ props }: any) {
   const { createCustomer, deleteCustomer, updateCustomer } = customerHook();
   const {
     setCurrentPage,
-    avartarFile,
+    // avartarFile,
     setAvartarFile,
     avartarUrl,
     setAvartarUrl,

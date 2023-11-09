@@ -1,7 +1,3 @@
-import React from "react";
-
-type Props = {};
-
 export const customers = [
   {
     id: 1,
