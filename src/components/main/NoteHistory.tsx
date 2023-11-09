@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
 import { useStore } from "../../contexts/store";
 import mockNoteHook from "../../hooks/noteHook";
-
+import Checkbox from "@mui/material/Checkbox";
+import { DebounceInput } from "react-debounce-input";
 type Props = {};
 
 export default function NoteHistory({}: Props) {
-  const { mockNote }: any = useStore();
-  const { filterNote, GetInitialMockNote }: any = mockNoteHook();
+  const { mockNote, setMocknote }: any = useStore();
+  const { filterNote, GetInitialMockNote, sortByUpdate }: any = mockNoteHook();
   const [categoryStatus, setCategoryStatus]: any = useState("");
 
   const initCategory: string[] = ["todo", "appointment", "task", "note"];
@@ -14,19 +15,40 @@ export default function NoteHistory({}: Props) {
     GetInitialMockNote();
   }, []);
 
+  const [checked, setChecked] = useState(false);
+  const handleChange = (e: any): void => {
+    const newNote = sortByUpdate(e.target.checked);
+    setMocknote(newNote);
+    setChecked(e.target.checked);
+  };
+
   return (
     <div className="max-w-[50rem] w-full">
       {" "}
       <div className="list-filter flex items-center mb-6 justify-between max-sm:flex-col">
         <div className="text-2xl font-bold">Note History</div>
         <div className="flex justify-center gap-[2rem] max-sm:flex-col max-sm:gap-[0.5rem]">
+          <div className="flex items-center w-[70%] ">
+            <Checkbox
+              checked={checked}
+              onChange={handleChange}
+              inputProps={{ "aria-label": "controlled" }}
+              sx={{
+                color: "purple",
+                "&.Mui-checked": {
+                  color: "purple",
+                },
+              }}
+            />
+            sort by last update
+          </div>
           <div>
-            <input
+            <DebounceInput
+              debounceTimeout={500}
               type="Search"
               className="outline-none flex items-center gap-2 self-stretch py-3 pl-3 pr-4 border-[1px] rounded-[8px] border-gray-200  text-black  h-12 bg-etc-white w-[240px]"
               placeholder="Customer name search..."
               onChange={(e) => {
-                e.preventDefault;
                 // check whather did user filter by category or not ***************************
                 if (categoryStatus) {
                   filterNote(e.target.value, true, categoryStatus);

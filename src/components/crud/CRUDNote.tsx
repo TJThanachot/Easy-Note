@@ -7,7 +7,7 @@ import { useStore } from "../../contexts/store";
 
 export default function CRUDNote({ props }: any) {
   const { createNote, deleteNote, updateNote } = mockNoteHook();
-  const { setCurrentPage }: any = useStore();
+  const { setCurrentPage, setCategory }: any = useStore();
   const initCategory: string[] = ["note", "todo", "appointment", "task"];
 
   const inappropriateWords = [
@@ -17,6 +17,7 @@ export default function CRUDNote({ props }: any) {
     "shit",
     "bull shit",
     "damn",
+    "dick",
   ]; // for example
 
   const inappropriateWordsValidator = (value: string | any) => {
@@ -79,6 +80,8 @@ export default function CRUDNote({ props }: any) {
               } else {
                 createNote(values);
                 formikHelpers.resetForm();
+                setCategory(values.category);
+                setCurrentPage("noteList");
               }
             } else if (result.isDenied) {
               Swal.fire("You canceled", "", "error");
@@ -91,6 +94,7 @@ export default function CRUDNote({ props }: any) {
           title: yup
             .string()
             .required("Please enter title")
+            .max(15, "Title must less than 15 character")
             .test(
               "no-inappropriate-words",
               "Title contains inappropriate words",
@@ -180,7 +184,7 @@ export default function CRUDNote({ props }: any) {
                   {props.update ? (
                     <button
                       type="button"
-                      className="w-[10rem] h-[2rem] font-bold rounded-lg bg-red-500 hover:opacity-80"
+                      className="w-[10rem] max-sm:w-[30%] h-[2rem] font-bold rounded-lg bg-red-500 hover:opacity-80"
                       onClick={() => {
                         Swal.fire({
                           title: `Are you sure to delete note?`,
@@ -205,7 +209,7 @@ export default function CRUDNote({ props }: any) {
                       Delete
                     </button>
                   ) : null}
-                  <div className="flex gap-[2rem] justify-end w-full max-sm:gap-2">
+                  <div className="flex gap-[2rem] justify-end w-full max-sm:gap-2 max-sm:w-[65%] ">
                     <button
                       type="submit"
                       className="w-[6rem] h-[2rem] font-bold rounded-lg bg-primary hover:opacity-80"
@@ -217,6 +221,20 @@ export default function CRUDNote({ props }: any) {
                       className="w-[6rem] h-[2rem] font-bold rounded-lg bg-primary hover:opacity-80"
                     >
                       Reset
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (props.update) {
+                          setCategory(props.category);
+                          setCurrentPage("noteList");
+                        } else {
+                          setCurrentPage("yourNote");
+                        }
+                      }}
+                      type="button"
+                      className="w-[6rem] h-[2rem] font-bold rounded-lg bg-primary hover:opacity-80"
+                    >
+                      Back
                     </button>
                   </div>
                 </div>
