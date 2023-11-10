@@ -9,11 +9,11 @@ import NoteList from "../components/NoteList";
 import CustomersList from "../components/main/CustomersList";
 import CRUDNote from "../components/crud/CRUDNote";
 import CRUDCustomer from "../components/crud/CRUDCustomer";
+import { Link, Routes, Route } from "react-router-dom";
 type Props = {};
 
 export default function Home({}: Props) {
   const {
-    currentPage,
     setCurrentPage,
     noteDataById,
     setNoteDataById,
@@ -27,7 +27,8 @@ export default function Home({}: Props) {
       <div className="flex gap-[2rem] p-[2rem] max-sm:flex-col">
         <aside className="w-[18rem] rounded-md flex flex-col gap-[2rem] max-sm:w-full">
           <SideNav />
-          <div
+          <Link
+            to="/dashBoard/CRUDNote"
             onClick={() => {
               setNoteDataById({});
               setCurrentPage("CRUDNote");
@@ -38,8 +39,9 @@ export default function Home({}: Props) {
             <div>
               <BiListPlus className="text-[5rem]" />
             </div>
-          </div>
-          <div
+          </Link>
+          <Link
+            to="/dashboard/CRUDCustomer"
             onClick={() => {
               setCustomerDataById({});
               setCurrentPage("CRUDCustomer");
@@ -50,22 +52,27 @@ export default function Home({}: Props) {
             <div>
               <FaArrowsDownToPeople className="text-[5rem]" />
             </div>
-          </div>
+          </Link>
         </aside>
         <main className="w-[80%] max-sm:w-full bg-gradient-to-b from-fourthdary to-fifthdary min-h-[46rem] flex flex-col items-center p-[2rem] gap-[2rem] rounded-md">
-          {currentPage === "yourNote" ? (
-            <YourNote />
-          ) : currentPage === "noteHistory" ? (
-            <NoteHistory />
-          ) : currentPage === "customers" ? (
-            <CustomersList />
-          ) : currentPage === "noteList" ? (
-            <NoteList />
-          ) : currentPage === "CRUDNote" ? (
-            <CRUDNote props={noteDataById ? noteDataById : null} />
-          ) : currentPage === "CRUDCustomer" ? (
-            <CRUDCustomer props={customerDataById ? customerDataById : null} />
-          ) : null}
+          <Routes>
+            <Route path="/" element={<YourNote />} />
+            <Route path="/CustomersList" element={<CustomersList />} />
+            <Route path="/NoteHistory" element={<NoteHistory />} />
+            <Route path="/NoteList" element={<NoteList />} />
+            <Route
+              path="/CRUDNote"
+              element={<CRUDNote props={noteDataById ? noteDataById : null} />}
+            />
+            <Route
+              path="/CRUDCustomer"
+              element={
+                <CRUDCustomer
+                  props={customerDataById ? customerDataById : null}
+                />
+              }
+            />
+          </Routes>
         </main>
       </div>
     </div>

@@ -4,8 +4,9 @@ import { TextField, MenuItem } from "@mui/material";
 import mockNoteHook from "../../hooks/noteHook";
 import Swal from "sweetalert2";
 import { useStore } from "../../contexts/store";
-
+import { useNavigate } from "react-router-dom";
 export default function CRUDNote({ props }: any) {
+  const nav = useNavigate();
   const { createNote, deleteNote, updateNote } = mockNoteHook();
   const { setCurrentPage, setCategory }: any = useStore();
   const initCategory: string[] = ["note", "todo", "appointment", "task"];
@@ -82,6 +83,7 @@ export default function CRUDNote({ props }: any) {
                 formikHelpers.resetForm();
                 setCategory(values.category);
                 setCurrentPage("noteList");
+                nav("/dashboard/NoteList");
               }
             } else if (result.isDenied) {
               Swal.fire("You canceled", "", "error");
@@ -200,6 +202,7 @@ export default function CRUDNote({ props }: any) {
                             );
                             deleteNote(props.id);
                             setCurrentPage("yourNote");
+                            nav("/dashboard");
                           } else if (result.isDenied) {
                             Swal.fire("You canceled", "", "error");
                           }
@@ -227,8 +230,10 @@ export default function CRUDNote({ props }: any) {
                         if (props.update) {
                           setCategory(props.category);
                           setCurrentPage("noteList");
+                          nav("/dashboard/NoteList");
                         } else {
                           setCurrentPage("yourNote");
+                          nav("/dashboard");
                         }
                       }}
                       type="button"

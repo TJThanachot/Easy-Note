@@ -4,6 +4,7 @@ import NoteCard from "./NoteCard";
 import mockNoteHook from "../hooks/noteHook";
 import Checkbox from "@mui/material/Checkbox";
 import { DebounceInput } from "react-debounce-input";
+import { Link } from "react-router-dom";
 type Props = {};
 
 export default function NoteList({}: Props) {
@@ -113,7 +114,8 @@ export default function NoteList({}: Props) {
         <ul className="flex flex-col items-center w-full gap-[2rem]">
           {mockNote?.map((item: any) => {
             return (
-              <li
+              <Link
+                to="/dashboard/CRUDNote"
                 className="w-full flex flex-col items-center"
                 key={item.id}
                 onClick={() => {
@@ -132,7 +134,7 @@ export default function NoteList({}: Props) {
                   customer_name={item.customer_name}
                   detail={item.detail}
                 />
-              </li>
+              </Link>
             );
           })}
         </ul>
