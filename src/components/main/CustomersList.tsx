@@ -3,6 +3,7 @@ import CustomerCard from "../CustomerCard";
 import { useStore } from "../../contexts/store";
 import customerHook from "../../hooks/customerHook";
 import { DebounceInput } from "react-debounce-input";
+import { Link } from "react-router-dom";
 type Props = {};
 
 export default function CustomersList({}: Props) {
@@ -57,21 +58,23 @@ export default function CustomersList({}: Props) {
       <main className="grid grid-cols-3 gap-[2rem] max-sm:grid-cols-1">
         {allCustomer?.map((item: any, index: number) => {
           return (
-            <CustomerCard
-              onClick={() => {
-                // go to detail and edit*******************************
-                setCustomerDataById({
-                  ...item,
-                  update: true,
-                });
-                setCurrentPage("CRUDCustomer");
-              }}
-              key={index}
-              avartar={item.avartar}
-              fullname={item.fullname}
-              tel={item.tel}
-              address={item.address}
-            />
+            <Link to="/dashboard/CRUDCustomer">
+              <CustomerCard
+                onClick={() => {
+                  // go to detail and edit*******************************
+                  setCustomerDataById({
+                    ...item,
+                    update: true,
+                  });
+                  setCurrentPage("CRUDCustomer");
+                }}
+                key={index}
+                avartar={item.avartar}
+                fullname={item.fullname}
+                tel={item.tel}
+                address={item.address}
+              />
+            </Link>
           );
         })}
       </main>

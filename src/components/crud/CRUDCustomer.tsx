@@ -6,8 +6,10 @@ import Swal from "sweetalert2";
 import { useStore } from "../../contexts/store";
 import { UploadImage } from "../../assets/icon";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function CRUDCustomer({ props }: any) {
+  const nav = useNavigate();
   const { createCustomer, deleteCustomer, updateCustomer } = customerHook();
   const {
     setCurrentPage,
@@ -103,6 +105,7 @@ export default function CRUDCustomer({ props }: any) {
                 createCustomer(values);
                 formikHelpers.resetForm();
                 setCurrentPage("customers");
+                nav("/dashboard/CustomersList");
               }
             } else if (result.isDenied) {
               Swal.fire("You canceled", "", "error");
@@ -302,6 +305,7 @@ export default function CRUDCustomer({ props }: any) {
                             );
                             deleteCustomer(props.id);
                             setCurrentPage("customers");
+                            nav("/dashboard/CustomersList");
                           } else if (result.isDenied) {
                             Swal.fire("You canceled", "", "error");
                           }
@@ -328,7 +332,10 @@ export default function CRUDCustomer({ props }: any) {
                       Reset
                     </button>
                     <button
-                      onClick={() => setCurrentPage("customers")}
+                      onClick={() => {
+                        setCurrentPage("customers");
+                        nav("/dashboard/CustomersList");
+                      }}
                       type="button"
                       className="w-[6rem] h-[2rem] font-bold rounded-lg bg-primary hover:opacity-80"
                     >

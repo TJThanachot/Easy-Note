@@ -1,5 +1,5 @@
 import { useStore } from "../contexts/store";
-
+import { Link } from "react-router-dom";
 type Props = {
   title: string;
   children: any;
@@ -9,7 +9,8 @@ type Props = {
 export default function HomeCard(props: Props) {
   const { setCurrentPage, setCategory }: any = useStore();
   return (
-    <div
+    <Link
+      to="/dashboard/NoteList"
       onClick={() => {
         setCategory(props.category);
         setCurrentPage("noteList");
@@ -18,6 +19,6 @@ export default function HomeCard(props: Props) {
     >
       {props.title}
       <div>{props.children}</div>
-    </div>
+    </Link>
   );
 }

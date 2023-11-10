@@ -2,6 +2,7 @@ import { GiStabbedNote } from "react-icons/gi";
 import { IoIosPeople } from "react-icons/io";
 import { AiOutlineUnorderedList } from "react-icons/ai";
 import { useStore } from "../contexts/store";
+import { Link } from "react-router-dom";
 type Props = {};
 
 export default function SideNav({}: Props) {
@@ -12,7 +13,8 @@ export default function SideNav({}: Props) {
         Note
       </h1>
       <div className="flex flex-col gap-[1rem] font-semibold h-auto rounded-lg">
-        <div
+        <Link
+          to="/dashboard"
           onClick={() => {
             setCurrentPage("yourNote");
           }}
@@ -24,8 +26,9 @@ export default function SideNav({}: Props) {
         >
           <GiStabbedNote />
           Your Note
-        </div>
-        <div
+        </Link>
+        <Link
+          to="/dashboard/CustomersList"
           onClick={() => {
             setCurrentPage("customers");
           }}
@@ -35,8 +38,9 @@ export default function SideNav({}: Props) {
         >
           <IoIosPeople />
           Customers
-        </div>
-        <div
+        </Link>
+        <Link
+          to="/dashboard/NoteHistory"
           onClick={() => {
             setCurrentPage("noteHistory");
           }}
@@ -46,7 +50,7 @@ export default function SideNav({}: Props) {
         >
           <AiOutlineUnorderedList />
           Note History
-        </div>
+        </Link>
       </div>
     </div>
   );
