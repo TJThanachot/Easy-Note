@@ -28,7 +28,7 @@ export default function Home({}: Props) {
         <aside className="w-[18rem] rounded-md flex flex-col gap-[2rem] max-sm:w-full">
           <SideNav />
           <Link
-            to="/dashBoard/CRUDNote"
+            to="/dashboard/CRUDNote"
             onClick={() => {
               setNoteDataById({});
               setCurrentPage("CRUDNote");
