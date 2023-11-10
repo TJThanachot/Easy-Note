@@ -4,10 +4,11 @@ import NoteCard from "./NoteCard";
 import mockNoteHook from "../hooks/noteHook";
 import Checkbox from "@mui/material/Checkbox";
 import { DebounceInput } from "react-debounce-input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 type Props = {};
 
 export default function NoteList({}: Props) {
+  const nav = useNavigate();
   const {
     mockNote,
     category,
@@ -101,7 +102,10 @@ export default function NoteList({}: Props) {
             sort by last update
           </div>
           <button
-            onClick={() => setCurrentPage("yourNote")}
+            onClick={() => {
+              setCurrentPage("yourNote");
+              nav("/dashboard");
+            }}
             type="button"
             className="w-[6rem] h-[2rem] font-bold rounded-lg bg-purple-400 hover:opacity-80"
           >
